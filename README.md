@@ -10,6 +10,42 @@
 7. [Data Synchronization and Feedback Loop](#data-synchronization-and-feedback-loop)
 8. [Running the Application](#running-the-application)
 
+## Project Structure
+
+```plaintext
+project-root/
+├── agents/
+│   └── log_analysis_agent.py                # Main Log Analysis Agent code
+├── memory/
+│   └── memory_module.py                     # Memory module for storing conversation context
+├── synchronization/
+│   ├── data_sync.py                         # Synchronizes logs to Elasticsearch and Pinecone
+│   └── feedback_loop.py                     # Module for collecting and applying user feedback
+├── integrations/
+│   ├── slack_integration.py                 # Slack integration for real-time queries
+│   └── slack_event_listener.py              # Listens for Slack events and handles messages
+├── retrievers/
+│   ├── elasticsearch_retriever.py           # Retriever for Elasticsearch-based queries
+│   ├── pinecone_retriever.py                # Retriever for Pinecone-based similarity queries
+│   └── langchain_document_loader.py         # Document loader for formatting combined results
+├── rag/
+│   └── suggestion_generator.py              # Generates actionable suggestions using RAG
+├── models/
+│   ├── download_model.py                    # Script to download embedding model
+│   └── saved_model/                         # Directory for locally saved models
+├── prompts/
+│   └── prompt_templates.json                # JSON file containing prompt templates
+├── config/
+│   ├── elasticsearch_config.json            # Configuration for Elasticsearch
+│   ├── pinecone_config.json                 # Configuration for Pinecone
+│   ├── slack_config.json                    # Configuration for Slack API token
+│   ├── model_config.json                    # Configuration for model settings
+│   └── model_initializer.py                 # Initializes model and Pinecone client
+├── data/
+│   └── sample_logs.json                     # Sample logs for testing ingestion and analysis
+└── requirements.txt                         # Dependencies for the project
+```
+
 ## Overview
 
 The **Log Analysis Agent** is an AI-powered system designed to assist operators with log analysis by:
@@ -172,38 +208,3 @@ To enhance the Log Analysis Agent's capabilities, integrating a **graph database
 
 Integrating Neo4j would position the Log Analysis Agent as a comprehensive, intelligent system capable of providing deep, relational insights, enabling teams to move beyond log analysis to true incident and system behavior understanding.
 
-## Project Structure
-
-```plaintext
-project-root/
-├── agents/
-│   └── log_analysis_agent.py                # Main Log Analysis Agent code
-├── memory/
-│   └── memory_module.py                     # Memory module for storing conversation context
-├── synchronization/
-│   ├── data_sync.py                         # Synchronizes logs to Elasticsearch and Pinecone
-│   └── feedback_loop.py                     # Module for collecting and applying user feedback
-├── integrations/
-│   ├── slack_integration.py                 # Slack integration for real-time queries
-│   └── slack_event_listener.py              # Listens for Slack events and handles messages
-├── retrievers/
-│   ├── elasticsearch_retriever.py           # Retriever for Elasticsearch-based queries
-│   ├── pinecone_retriever.py                # Retriever for Pinecone-based similarity queries
-│   └── langchain_document_loader.py         # Document loader for formatting combined results
-├── rag/
-│   └── suggestion_generator.py              # Generates actionable suggestions using RAG
-├── models/
-│   ├── download_model.py                    # Script to download embedding model
-│   └── saved_model/                         # Directory for locally saved models
-├── prompts/
-│   └── prompt_templates.json                # JSON file containing prompt templates
-├── config/
-│   ├── elasticsearch_config.json            # Configuration for Elasticsearch
-│   ├── pinecone_config.json                 # Configuration for Pinecone
-│   ├── slack_config.json                    # Configuration for Slack API token
-│   ├── model_config.json                    # Configuration for model settings
-│   └── model_initializer.py                 # Initializes model and Pinecone client
-├── data/
-│   └── sample_logs.json                     # Sample logs for testing ingestion and analysis
-└── requirements.txt                         # Dependencies for the project
-```
