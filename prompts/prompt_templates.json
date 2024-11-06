@@ -1,6 +1,7 @@
 {
     "date": "Retrieve all logs from {start_date} to {end_date}.",
     "level": "Retrieve all logs with log level '{log_level}'.",
-    "semantic": "Find logs similar to '{query_text}'."
+    "semantic": "Find logs similar to '{query_text}'.",
+    "suggestion": "Based on historical incidents and structured logs, suggest actions for query: '{query_text}'."
   }
   

@@ -5,24 +5,29 @@ from configparser import ConfigParser
 from agents.log_analysis_agent import process_query
 from agents.log_analysis_agent import analyze_query, process_query
 
+
+
 # Load Slack configuration
 slack_config = ConfigParser()
 slack_config.read('../config/slack_config.json')
 slack_client = WebClient(token=slack_config['slack']['token'])
 
 def handle_slack_message(event_data):
-    query_text = event_data.get('text', '')
-    user = event_data.get('user', '')
-
-    # Determine query type and params based on the message text
-    query_type, query_params = analyze_query(query_text)
+    query_text = event_data['text']
+    user_id = event_data['user']
     
-    # Process the query through the Log Analysis Agent
-    results = process_query(query_type, query_params)
+    # Analyze the query type and parameters with memory consideration
+    query_type, query_params = analyze_query(query_text, user_id)
 
-    # Format response and send to Slack
-    response_message = f"Results for '{query_text}':\n{json.dumps(results, indent=2)}"
-    send_slack_response(user, response_message)
+    # Process the query and retrieve RAG-based suggestions
+    response = process_query(query_type, query_params, user_id)
+    
+    # Send the results and suggestions back to Slack
+    response_message = f"Query Results for '{query_text}':\n\n"
+    response_message += f"Results:\n{json.dumps(response['results'], indent=2)}\n\n"
+    response_message += f"Contextual Suggestions:\n{json.dumps(response['contextual_suggestions'], indent=2)}"
+    
+    send_slack_response(user_id, response_message)
 
 def send_slack_response(channel, text):
     try:

@@ -1,0 +1,11 @@
+{
+    "pinecone": {
+      "api_key": "YOUR_PINECONE_API_KEY",             
+      "environment": "us-west1-gcp",                   
+      "index_name": "log-embeddings",                   
+      "namespace": "logs",                            
+      "metric": "cosine",                              
+      "top_k": 5                                       
+    }
+  }
+  

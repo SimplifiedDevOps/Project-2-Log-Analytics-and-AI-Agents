@@ -1,0 +1,43 @@
+[
+    {
+      "id": "log_001",
+      "timestamp": "2024-11-06T10:30:00Z",
+      "log_level": "ERROR",
+      "error_code": "500",
+      "message": "Database connection failed due to timeout.",
+      "stack_trace": "Exception in thread main: Database connection timeout at line 23 in DBConnect.java"
+    },
+    {
+      "id": "log_002",
+      "timestamp": "2024-11-06T11:00:00Z",
+      "log_level": "INFO",
+      "error_code": null,
+      "message": "User successfully logged in.",
+      "stack_trace": null
+    },
+    {
+      "id": "log_003",
+      "timestamp": "2024-11-06T11:05:00Z",
+      "log_level": "WARNING",
+      "error_code": "300",
+      "message": "Memory usage exceeded 80% threshold.",
+      "stack_trace": null
+    },
+    {
+      "id": "log_004",
+      "timestamp": "2024-11-06T11:30:00Z",
+      "log_level": "ERROR",
+      "error_code": "404",
+      "message": "Requested file not found on server.",
+      "stack_trace": "FileNotFoundException at line 102 in FileManager.java"
+    },
+    {
+      "id": "log_005",
+      "timestamp": "2024-11-06T12:00:00Z",
+      "log_level": "DEBUG",
+      "error_code": null,
+      "message": "Debug mode enabled for application testing.",
+      "stack_trace": null
+    }
+  ]
+  

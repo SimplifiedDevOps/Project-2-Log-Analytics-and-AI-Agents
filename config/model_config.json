@@ -1,0 +1,17 @@
+{
+    "model": {
+      "name": "all-MiniLM-L6-v2",
+      "provider": "sentence-transformers",
+      "embedding_dimension": 384,
+      "device": "cpu"  
+    },
+    "pinecone": {
+      "top_k": 5,
+      "similarity_metric": "cosine"  
+    },
+    "settings": {
+      "update_frequency": "daily",  
+      "cache_embeddings": true      
+    }
+  }
+  
