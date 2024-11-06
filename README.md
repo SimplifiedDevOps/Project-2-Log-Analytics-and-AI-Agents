@@ -33,14 +33,14 @@ This tool is ideal for IT support teams and DevOps professionals who need action
 ### 1. Clone the Repository
 Clone the project repository to your local machine:
 
-```bash
+bash
 git clone <repository-url>
 cd project-root
 
 ### 2. Install Dependencies
 Install the necessary Python packages using `requirements.txt`:
 
-```bash
+bash
 pip install -r requirements.txt
 
 ### 3. Configure Environment
@@ -54,7 +54,7 @@ Update the configuration files with your specific settings:
 ### 4. Download Model
 Run `download_model.py` to download and save the embedding model locally:
 
-```bash
+bash
 python models/download_model.py
 
 ## Usage Guide
@@ -174,7 +174,7 @@ Integrating Neo4j would position the Log Analysis Agent as a comprehensive, inte
 
 ## Project Structure
 
-```plaintext
+plaintext
 project-root/
 ├── agents/
 │   └── log_analysis_agent.py                # Main Log Analysis Agent code
