@@ -174,7 +174,7 @@ Integrating Neo4j would position the Log Analysis Agent as a comprehensive, inte
 
 ## Project Structure
 
-plaintext
+```plaintext
 project-root/
 ├── agents/
 │   └── log_analysis_agent.py                # Main Log Analysis Agent code
@@ -206,3 +206,4 @@ project-root/
 ├── data/
 │   └── sample_logs.json                     # Sample logs for testing ingestion and analysis
 └── requirements.txt                         # Dependencies for the project
+```
